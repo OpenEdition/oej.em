@@ -10,7 +10,7 @@ Install
 
 Execute
 
-.. code:sh
+.. code-block:: sh
 
    cd PATH_TO_ROOT_LODEL_DIRECTORY
    php upgrade_X.X.X_to_Y.Y.Y.php mysite # update the site "mysite"
