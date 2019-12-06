@@ -19,4 +19,4 @@ Execute
 
 - after execution, file should be remove from lodel root directory
 
-
+- edit upgrade_X.X.X_to_Y.Y.Y.php for details
