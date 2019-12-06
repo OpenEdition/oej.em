@@ -1,6 +1,6 @@
 OpenEdition Journals Editorial Model - ChangeLog
 
-1.0.1 
+1.0.1  (not yet released)
 - update Xpath of the following fields for compatibility with 1.6.2 release of the OpenEdition TEI Schema <https://github.com/OpenEdition/tei.openedition/releases>:
   - class 'textes', field 'ndla'
   - class 'textes', field 'ndlr'
