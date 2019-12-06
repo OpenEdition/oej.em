@@ -1,0 +1,12 @@
+OpenEdition Editorial Model - ChangeLog
+
+1.0.1 (not yet released)
+- update Xpath of the following fields for compatibility with 1.6.2 release of the OpenEdition TEI Schema <https://github.com/OpenEdition/tei.openedition/releases>:
+  - class 'textes', field 'ndla'
+  - class 'textes', field 'ndlr'
+  - class 'textes', field 'pagination'
+  - class 'textes', field 'datepublipapier'
+- create if needed or update 'emversion' option to '1.0.1'
+
+1.0.0
+- firt version
