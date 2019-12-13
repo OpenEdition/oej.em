@@ -1,4 +1,4 @@
-OpenEdition Journale Editorial Model upgrade scripts 
+OpenEdition Journals Editorial Model upgrade scripts 
 ===========================================================================
 
 
