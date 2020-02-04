@@ -4,7 +4,7 @@ if (PHP_SAPI != 'cli') die('cli only');         // php-cli only
 /*******************************************************************
    
    Description
-   - upgrade editorial model from version 1.0.0 to 1.0.1
+   - upgrade editorial model from version 1.0.0 or 1.0.1 to 1.0.2
    - update XPath for pagination, ndlr, ndla, datepublipapier
      for compatibility with OpenEdition TEI Schema 1.6.2
    - create if needed or update emversion option
@@ -15,9 +15,9 @@ if (PHP_SAPI != 'cli') die('cli only');         // php-cli only
 
    Execute
    - cd PATH_TO_ROOT_LODEL_DIRECTORY
-   - php upgrade_1.0.0_to_1.0.1.php mysite # update the site "mysite"
+   - php upgrade_1.0.X_to_1.0.2.php mysite # update the site "mysite"
      or 
-     php upgrade_1.0.0_to_1.0.1.php all # update all sites (excepted site listed in the array $exclude. See below)
+     php upgrade_1.0.X_to_1.0.2.php all # update all sites (excepted site listed in the array $exclude. See below)
    - after execution, file should be remove from lodel root directory
 
  *******************************************************************/
@@ -31,16 +31,16 @@ $sites = new ME_sites_iterator($argv, 'errors'); // 'errors' display only errors
 while ($siteName = $sites->fetch()) {
 	if (in_array($siteName,$exclude)) continue;
 
-	TF::get('textes', 'pagination')->set('otx','/tei:TEI/teiHeader/fileDesc/sourceDesc/biblStruct/monogr/imprint/biblScope[@unit=\'page\']')->m();
+	TF::get('textes', 'pagination')->set('otx','/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:biblStruct/tei:monogr/tei:imprint/tei:biblScope[@unit=\'page\']')->m();
 	TF::get('textes', 'ndlr')->set('otx','/tei:TEI/tei:text/tei:front/tei:note[@type=\'publisher\']/tei:p')->m();
 	TF::get('textes', 'ndla')->set('otx','/tei:TEI/tei:text/tei:front/tei:note[@type=\'author\']/tei:p')->m();
 	TF::get('textes', 'datepublipapier')->set('otx','/tei:TEI/tei:teiHeader/tei:fileDesc/tei:sourceDesc/tei:biblStruct/tei:monogr/tei:imprint/tei:date[@type=\'published\']')->m();
 
-	O::create('optionsgenerales', 'emversion', 'tinytext', 'Version du modèle éditorial',array('edition' => 'display','editionparams' => '','userrights' => 40,'defaultvalue' => '1.0.1','value'=>'1.0.1'))->m();
+	O::create('optionsgenerales', 'emversion', 'tinytext', 'Version du modèle éditorial',array('edition' => 'display','editionparams' => '','userrights' => 40,'defaultvalue' => '1.0.2','value'=>'1.0.2'))->m();
 	// Update emversion with MySQL commands
 	// me_manipulation_func.php doesn't provide method to update these fields
 	global $db;
-        $sql = lq("UPDATE options SET defaultvalue='1.0.1', value='1.0.1' WHERE name='emversion'");
+        $sql = lq("UPDATE options SET defaultvalue='1.0.2', value='1.0.2' WHERE name='emversion'");
         $db->Execute($sql);
 }
 
