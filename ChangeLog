@@ -1,6 +1,64 @@
 OpenEdition Journals Editorial Model - ChangeLog
 
-1.0.1 
+##1.0.3
+
+The major development in this new version involves the addition of an IdRef field to the person index class (entities_auteurs). This addition is made upon activation of the IdRef plugin for Lodel 1 (https://github.com/OpenEdition/idref-plugin). This plugin allows querying the IdRef database to link authors of editorial units to their IdRef identifier.
+
+Removals
+
+Several removals have been made in this release:
+Collection index and associated fields: this index was used for journal sites that had changed their ISSN. We have organized the division of these sites and removed the index.
+Advanced license index and associated fields: as part of the implementation of the new General Terms and Conditions of Use (hereinafter "GTCU"), all OpenEdition Journals sites now have a default license defined in a shared index. The advanced license index is therefore no longer used at the site level.
+Less used publication types: removal of certain publication types on the platform to harmonize the editorial model.
+
+Details of Removals
+
+Entries class
+Types:
+- collections:collection
+- indexavances:licence
+
+Entities class
+Types:
+- publications:annuairedequipe
+- publications:annuairedesites
+- publications:annuairemedias
+- publications:rubriqueannuaire
+- publications:rubriqueequipe
+- publications:rubriquemediatheque
+
+Entities class
+Fields (tablefields):
+- collections:titre
+- collections:soustitre
+- collections:issn
+- collections:issnelectronique
+- fichiers:licence
+- fichiersexternes:licence
+- indexavances:nom
+- indexavances:description
+- indexavances:url
+- indexavances:icone
+- publications:licence
+- publications:collection
+- textes:licence
+- textes:fichierreference
+
+Addition
+
+Entities class
+Fields (tablefields):
+- entities_auteurs:idref
+
+
+##1.0.2
+
+Fix error in release 1.0.1 : the XPath of the field 'pagination' in class 'textes' was wrong.
+
+Compliant with 1.6.2 release of the OpenEdition TEI Schema https://github.com/OpenEdition/tei.openedition/releases.
+
+##1.0.1
+ 
 - update Xpath of the following fields for compatibility with 1.6.2 release of the OpenEdition TEI Schema <https://github.com/OpenEdition/tei.openedition/releases>:
   - class 'textes', field 'ndla'
   - class 'textes', field 'ndlr'
@@ -8,5 +66,6 @@ OpenEdition Journals Editorial Model - ChangeLog
   - class 'textes', field 'datepublipapier'
 - create if needed or update 'emversion' option to '1.0.1'
 
-1.0.0
+##1.0.0
+
 - first version

@@ -16,5 +16,6 @@ Upgrade the editorial model of an existing website
 -----------------------------------------------------
 
 The ``upgrade`` directory contains php scripts that update editorial model from a version to the next one.
+For 1.0.3 there is no update script, please see changelog for details.
 
 Documentation is available in ``upgrade/README.rst``.
